@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="{% static 'larry.ico' %}">
+    <title>Playground</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 4px 0;
+            display: block;
+        }
+        #dropdownMenuButton {
+            background-color: powderblue;
+        }
+        .dropdown-menu {
+            background-color: #f8f9fa; /* Change the background color */
+            border-radius: 0; /* Remove the border radius */
+            width: auto;
+        }
+        .dropdown-item {
+            color: #333; /* Change the text color */
+        }
+        .dropdown-item:hover {
+            color: #fff; /* Change the text color on hover */
+            background-color: #007bff; /* Change the background color on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="vector-header-containter">
+        <header class="vector-header">
+            <div class="vector-header-start">
+                <nav class="vector-main-menu-landmark" aria-label="Site" role="navigation">
+                    <div id="vector-main-menu-dropdown" class="vector-main-menu-dropdown-checkbox dropdown"
+                    role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-main-menu-dropdown" class="vector-dropdown-checkbox" aria-label="Main menu">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/news/">News</a>
+                            <a class="dropdown-item" href="{% url 'home' %}">Home</a>
+                            <!-- Add more links as needed -->
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <!-- Include jQuery, Popper.js, and Bootstrap JS for dropdown functionality -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

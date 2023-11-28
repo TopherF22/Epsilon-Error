@@ -1,0 +1,71 @@
+Dashboard: 
+
+Project Scope: Create a highly customizable, easy to use, aestetically pleasing dashboard 
+- Purpose: improve QF and Coding skills, the primary goal should be to analyze market trends, secondary could be to track personal investmets
+- Key Features - 
+1. Interactive charts with zoom and pan features as well as controls for date ranges and parameters
+2. News Feed, preferably real time from different sources, customizable which sources and topics. Next level would be to use a LLM to parse articles and correlate it with related stocks
+3. User Personas- initially target audience will purely be myself, by that I mean that I will curate it to how I would want to use it. This is the minimum viable product. Next I would add additional options to cater to other people's use cases. 
+4. Aesthetic choices - minimalist, but highly functional, and when theres a clash, functional takes precedence
+5. Customization - view theme, choose which modules are displayed, customize graphics to suit needs. Changing the layout and saving to the user file could be an additional step
+6. Pull as new of data as possible, I believe Alpha Vantage will have newer data than yFinance, but I need to test this. Ultimately I believe I will use Alpha Vantage for real-time data and yFinance for historical because I have experience with yFinance
+7. Compatibility and Accessibility - Web-based using Django, Desktop will be primary use case, expansion to mobile could be in the future after I am satisfied with Desktop 
+8. Documentation - document progress and goals continuously. In app guide will be built after the page is created along with FAQ. An email can be set up for support
+9. Testing Criteria - Quickly displayes the desired data accurately
+10. Project constraints - lack of knowledge of Django and web design. 
+11. Sucess Metrics - Able to publish the page to be viewed and used by others
+
+
+Data Sources: yFinance (easy), Alpha Vantage (need to look in to), others?
+
+Development environment: VS Code
+
+
+
+Ideas:
+1. Data Sources: yFinance, look into APIs for additional data (macro?)
+
+2. Data retrieval and Cleaning: Write functions to retrieve and clean the data (handle missing values, outliers, transformations)
+
+3. Asset performance: Display performance of selected assets over time, calculate and visualize key performance metrics (returns, volatility, Sharpe)
+
+4. Portfolio Allocation: allow users to input a portfolio and display its current allocation, implement portfolio performance metrics and risk measures
+
+5. Risk management: include risk management tools such as Value at Risk calculations, display breakdown of risk contributions from different assets in the portfolio
+
+6. Financial Charts: line graphs, candlestick charts, or OHLC charts; implement interactive features such as zooming, panning, and tooltips for a better user experience
+
+7. Correlation Analysis: Show correlations between different assets or asset classes, visualize correlation matrices and highlight important relationships
+
+8. News and Events: integrate a news feed related to the financial instruments, include a calendar of economic events and earnings releases
+
+9. Performance Attribution: break down the portfolio's performance into various factors like asset selection and market timing
+
+10. User Authentication: When go public, add authentication to protect sensitive data
+
+11. Dashboaerd interactivity: Make dashboard interactive with widgets or sliders to adjust date ranges, asset allocations, etc; iclude dropdowns or checkboxes to allow users to customize their view
+
+12. Documentation: provide clear documentation on how to use the dashboard, including datashources, required packages, and any other setup instructions
+
+13. Code structure: Organize into modular functions and classes for better readability and maintainability; use comments and docstrings to eplain the code
+
+14. Testing: implement unti tests to ensure the reliability of the code, especially for data rerieval and cleaning functions
+
+15. Visualization Aestetics: Pay attention to the design and aestetics of the dashboard. Use a clean and intuitive layout with color-coded elements
+
+16. Performance Optimization: optimize the dashboard's performance, especially if dealing with large datasets
+
+17. Deployment: some options: Flask, Dash, Streamlit
+
+
+
+Sources:
+
+AlphaVantage to Django: https://www.alphavantage.co/stock-price-tracker-website-python-django/
+
+alphaVantage API Key: UTJYXBQOKRCYNWXR   --  email used: cfronda@fordham.edu
+
+ 
+
+News API Key: 7d28cc5d8b874e1584c4ee8801ac738f  --  email used: cfronda@fordham.edu
+https://newsapi.org/docs/endpoints/everything

@@ -1,0 +1,183 @@
+<!-- news.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <link rel="icon" type="image/x-icon" href="{% static 'news.ico' %}">
+    <meta charset="utf-8">
+    <title>Latest News</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .align-vertical {
+            display: flex;
+            align-items: center;
+        }
+        .dropdown-menu {
+            background-color: #f8f9fa; /* Change the background color */
+            color: #343a40; /* Change the text color */
+        }
+
+        .dropdown-menu .form-check-input {
+            margin-left: -1.25rem; /* Adjust the position of the checkbox */
+        }
+        .dropdown {
+            top: 60px; /* Adjust this value as needed */
+            left: 10px; /* Adjust this value as needed */
+        }
+        #dropdownMenuButton {
+            background-color: #f8f9fa; /* Change the background color */
+            color: #343a40; /* Change the text color */
+            font-size: 1rem; /* Change the font size */
+            padding: 1.0rem 1.0rem; /* Change the padding to adjust the size */
+        }
+        .row-vertical-align {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .no-mb {
+            margin-bottom: 0;
+        }
+        .news-button {
+            width: 100%;
+            max-width:40000px;
+        }
+        h1{text-align: center; font-family: "Helvetica"; font-variant: small-caps; color: #00000;}
+        .news-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+        .top-button {
+            position: fixed;
+            top: 5px;
+            right: 5px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            background-color: powderblue; 
+            border: 1px solid #000000;
+            border-radius: 10px;
+            font-weight: 600;
+            font-family: "Helvetica";
+            font-variant: caps;
+            
+        }
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 2px 0;
+            display: block;
+        }
+        #newDropdownMenuButton {
+            background-color: powderblue;
+        }
+        .new-dropdown {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            margin-bottom: 2px;
+            margin-left: 2px;
+            z-index: 500;
+            background-color: powderblue; 
+        }
+        .new-dropdown-menu {
+            background-color: #f8f9fa; /* Change the background color */
+            border-radius: 0; /* Remove the border radius */
+            width: auto;
+        }
+        .new-dropdown-item {
+            color: #333; /* Change the text color */
+        }
+        .new-dropdown-item:hover {
+            color: #fff; /* Change the text color on hover */
+            background-color: #007bff; /* Change the background color on hover */
+        }
+    </style>
+</head>
+<div class="new-dropdown vector-header-containter">
+    <header class="vector-header">
+        <div class="vector-header-start">
+            <nav class="vector-main-menu-landmark" aria-label="Site" role="navigation">
+                <div id="vector-main-menu-dropdown" class="vector-main-menu-dropdown-checkbox dropdown"
+                role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-main-menu-dropdown" class="vector-dropdown-checkbox" aria-label="Main menu">
+                <div class="new-dropdown vector-header-containter">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="newDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </button>
+                    <div class="new-dropdown-menu dropdown-menu" aria-labelledby="newDropdownMenuButton">
+                        <a class="new-dropdown-item dropdown-item" href="/news/">News</a>
+                        <a class="new-dropdown-item dropdown-item" href="{% url 'home' %}">Home</a>
+                        <!-- Add more links as needed -->
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+</div>
+<body>
+    <button class="top-button btn btn-light" onclick="window.scrollTo(0, 0)">Top</button>
+    <h1>Latest News</h1>
+            <form method="get" action="{% url 'index' %}" class="no-mb">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for news..." name="q" value="{{ search_query }}">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Sources
+                </button>
+                <form method="get" action="{% url 'index' %}">
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="form-check">
+                            {% for source in sources %}
+                                <input type="checkbox" class="form-check-input" id="check{{ forloop.counter }}" name="source" value="{{ source }}">
+                                <label class="form-check-label" for="check{{ forloop.counter }}">{{ source }}</label><br>
+                            {% endfor %}
+                        </div>
+                        <button class="btn btn-primary mt-3" type="submit">Apply</button>
+                    </div>
+                </form>
+            </div>
+    </div>
+    
+    <div class="container">
+        {% for title, description, image, published_at, source, url in mylist %}
+            <div class="card mb-3">
+                <img src="{{ image }}" class="card-img-top" alt="News image">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{{ url }}" target="_blank">{{ title }}</a></h5>
+                    <p class="card-text">{{ description }}</p>
+                    <p class="card-text"><small class="text-muted">Source: {{ source }}</small></p>
+                    <p class="card-text"><small class="text-muted">Published at: {{ published_at }}</small></p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var searchInput = document.getElementById('searchInput');
+            var searchForm = document.getElementById('searchForm');
+
+            if (searchInput && searchForm) {
+                searchInput.addEventListener('keypress', function(event) {
+                    if (event.keyCode === 'Enter') {
+                        searchForm.submit();
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+</body>
+</html>

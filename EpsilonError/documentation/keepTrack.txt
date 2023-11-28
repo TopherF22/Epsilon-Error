@@ -1,0 +1,35 @@
+This file is designed to help me keep track of everything if I stop working on this for a while
+
+FIles: 
+- on path "C:\Users\luke2\TophDash"
+    Text Files:
+        Instructions.txt - alphaVantages instructions to create a django project using alphaVantage API
+        Thoughtboard.txt - brainstorming for this project, some ideas etx.
+        keepTrack.txt - here!
+    The rest:
+        TophDash\alphaVantage 
+            - created by terminal command django startproject alphaVantage
+            - built _pycache_ and the included files
+        TophDash\alphaVantage\..
+            - manage.py: A command-line utility that lets you interact with this Django project in various ways. You can read all the details about manage.py in django-admin and manage.py.
+            - __init__.py: KEEP EMPTY Tells  python that this directory should be considered a python package
+            - settings.py: settings/configuration of Django project
+            - urls.py - "table of contents" of the Django-powered site
+            - models.py: defines database objects and schema
+            - views.py: backend logic implemented and relayed to frontend (views)
+        TophDash\alphaVantage\templates\
+            - home.html: determines looks and behavior of homepage
+
+        
+
+paused at line 240 of instructions. gn
+
+news sources:
+Google News
+NPR
+Time
+The Washington Post
+Reuters
+Business Insider
+Fox Business
+DailyFX
